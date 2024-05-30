@@ -1,0 +1,2 @@
+#!/bin/bash
+cmsDriver.py step1 --no_exec --mc --python_filename run_crab.py --fileout DIGIPremix.root --eventcontent PREMIXRAW --datatier GEN-SIM-DIGI --runUnscheduled --step DIGI,DATAMIX,L1,DIGI2RAW --procModifiers premix_stage2 --datamix PreMix --geometry DB:Extended -n 6284 --pileup_input dbs:/Neutrino_E-10_gun/RunIISummer20ULPrePremix-UL18_106X_upgrade2018_realistic_v11_L1v1-v2/PREMIX --conditions 106X_upgrade2018_realistic_v11_L1v1 --era Run2_2018

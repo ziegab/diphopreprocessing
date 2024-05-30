@@ -1,0 +1,2 @@
+ALL_PACKAGES += Configuration/Generator
+subdirs_src_Configuration_Generator := src_Configuration_Generator_test src_Configuration_Generator_python

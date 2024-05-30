@@ -1,0 +1,14 @@
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8ConcurrentHadronizerFilter CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8ConcurrentHadronizerFilter CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8GeneratorFilter CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8GeneratorFilter CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8HadronizerFilter CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Filters.so Pythia8HadronizerFilter CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8EGun CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8EGun CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8JetGun CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8JetGun CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8PtGun CMS%EDM%Framework%Module
+plugin-poisoned-GeneratorInterfacePythia8Guns.so Pythia8PtGun CMS%EDM%Framework%ParameterSet%Description
+plugin-poisoned-ZJetsTestAnalyzer.so ZJetsTest CMS%EDM%Framework%Module
+plugin-poisoned-ZJetsTestAnalyzer.so ZJetsTest CMS%EDM%Framework%ParameterSet%Description

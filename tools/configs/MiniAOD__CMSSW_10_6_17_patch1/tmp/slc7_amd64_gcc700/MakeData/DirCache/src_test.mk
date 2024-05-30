@@ -1,0 +1,2 @@
+ALL_SUBSYSTEMS+=test
+subdirs_src_test = src_test_Res1ToRes2GluToGluVV_M1-1500_R-180_TuneCP5
