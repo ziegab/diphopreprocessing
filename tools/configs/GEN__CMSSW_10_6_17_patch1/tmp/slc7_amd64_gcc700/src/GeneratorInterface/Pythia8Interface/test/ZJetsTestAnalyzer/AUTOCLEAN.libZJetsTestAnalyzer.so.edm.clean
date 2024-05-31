@@ -1,2 +1,0 @@
-01:/usr/bin/rm -f lib/slc7_amd64_gcc700/pluginZJetsTestAnalyzer.so lib/slc7_amd64_gcc700/ZJetsTestAnalyzer.edmplugin
-90:edmPluginRefresh lib/slc7_amd64_gcc700
