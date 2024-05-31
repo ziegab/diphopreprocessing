@@ -4,11 +4,12 @@
 source /cvmfs/cms.cern.ch/cmsset_default.sh 
 export SCRAM_ARCH=slc7_amd64_gcc10
 
-n_events=200
+n_events=500
 releasedir=/afs/crc.nd.edu/user/g/gziemyt2/Public/diphogensig/diphopreprocessing/tools/configs
 tmpdir=/scratch365/gziemyt2/DiphotonGun/condor
-outpath=/project01/ndcms/gziemyt2/DiphotonGun/AtoGG_200events_MiniAOD.root
+outpath=/project01/ndcms/gziemyt2/DiphotonGun/AtoGG_500events1.0Ma_MiniAOD.root
 saveAOD=True
+aMass=1.0
 
 outputdir=$(dirname "$outpath")
 echo "$outputdir"
@@ -59,7 +60,7 @@ echo "Starting GEN to MiniAOD steps"
 echo "GEN step"
 cd $GEN
 eval `scramv1 runtime -sh`
-cmsRun AtoGammaGammaFlatMoE_pythia8_GEN.py $n_events $GENfilepath
+cmsRun AtoGammaGammaFlatMoE_pythia8_GEN.py $n_events $GENfilepath $aMass
 
 # Check exit status
 if [ $? -ne 0 ]

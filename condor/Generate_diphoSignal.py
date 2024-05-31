@@ -33,6 +33,7 @@ def generate_signal_point(
         executable,
         job_name,
         n_total_events,
+        aMass,
         releasedir,
         tmpdir,
         outpath,
@@ -42,13 +43,14 @@ def generate_signal_point(
     ):
 
     ## Modify the executable with the specified new information
-    lines_to_replace = [7, 8, 9, 10, 11] 
+    lines_to_replace = [7, 8, 9, 10, 11, 12] 
     saveAODstr=str(saveAOD)
     new_lines = ['n_events=' + n_total_events, 
                 'releasedir=' + releasedir,
                 'tmpdir=' + tmpdir,
                 'outpath=' + outpath,
-                'saveAOD=' + saveAODstr] 
+                'saveAOD=' + saveAODstr,
+                'aMass=' + aMass] 
     execfile = file_path + executable
     replace_lines_in_file(execfile, lines_to_replace, new_lines)
 
@@ -63,11 +65,12 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description='Generate MiniAOD signal events')
-    parser.add_argument('--n_total_events', '-n', type=int, default=1000, help='Number of events per file.')
+    parser.add_argument('--n_total_events', '-n', type=int, default=500, help='Number of events per file.')
     parser.add_argument('--output_base', '-o', type=str, default=vast_storage, help='Specify the output base directory. Default is vast.')
     parser.add_argument('--condor', '-c', action='store_true', help='Submit jobs to condor.')
     parser.add_argument('--saveAOD', type=bool, default=True, help='Save AOD as well as MiniAOD')
     parser.add_argument('--saveMiniAODv2', type=bool, default=True, help='Save MiniAOD')
+    parser.add_argument('--aMass', '-Ma', type=float, default=999, help="Specify the mass (in GeV) of the orginal object that decays into 2 photons.")
 
     args = parser.parse_args()
 
@@ -80,7 +83,7 @@ if __name__ == "__main__":
 
     executable = f"run_event_generation.sh"
     outputbase = args.output_base
-    job_name = signal_tag + '_' + str(args.n_total_events) + 'events' + '_MiniAOD.root'
+    job_name = signal_tag + '_' + str(args.n_total_events) + 'events' + str(args.aMass) + 'Ma' + '_MiniAOD.root'
     outpath = f"{outputbase}/{job_name}"
     file_path = f'{preprocessing_dir}/condor/'
 
@@ -88,6 +91,7 @@ if __name__ == "__main__":
         executable,
         job_name,
         str(args.n_total_events),
+        str(args.aMass),
         config_dir,
         tmpdir,
         outpath,
