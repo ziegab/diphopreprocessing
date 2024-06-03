@@ -45,7 +45,7 @@ def ensure_cmssw(release):
         )
 
 def ensure_Config(release):
-    if not os.path.exists(f"{config_dir}/{release}/Configuration"):
+    if not os.path.exists(f"{config_dir}/{release}/src/Configuration"):
         print(f"Setting up Configuration")
         try_command(f"""
             cd {config_dir}/{release}/src
@@ -55,13 +55,27 @@ def ensure_Config(release):
         """)
 
 def ensure_GeneratorInterface(release):
-    if not os.path.exists(f"{config_dir}/{release}/GeneratorInterface"):
+    if not os.path.exists(f"{config_dir}/{release}/src/GeneratorInterface"):
         print(f"Setting up Generator Interface")
         try_command(f"""
             cd {config_dir}/{release}/src
             eval `scram runtime -sh`
             git cms-addpkg GeneratorInterface/Pythia8Interface
             scram b
+        """)
+
+def ensure_genstep(release):
+    if not os.path.exists(f"{config_dir}/{release}/src/AtoGammaGammaFlatMoE_pythia8_GEN.py"):
+        print(f"Moving files to the correct directory.")
+        try_command(f"""
+            cd {config_dir}
+            cp ./GENfiles/AtoGammaGammaFlatMoE_pythia8_GEN.py ./{release}/src
+        """)
+    if not os.path.exists(f"{config_dir}/{release}/src/GeneratorInterface/Pythia8Interface/plugins/Py8MoEGun.cc"):
+        print(f"Moving plugins to the correct directory.")
+        try_command(f"""
+            cd {config_dir}
+            cp ./GENfiles/plugins/Py8MoEGun.cc ./{release}/src/GeneratorInterface/Pythia8Interface/plugins
         """)
 
 if __name__ == "__main__":
@@ -71,4 +85,4 @@ if __name__ == "__main__":
     ensure_GeneratorInterface("CMSSW_10_6_17_patch1")
     
     # Getting necessary plugins and scripts to generate the signal
-    
+    ensure_genstep("CMSSW_10_6_17_patch1")
