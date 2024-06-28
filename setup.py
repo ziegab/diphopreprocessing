@@ -70,12 +70,14 @@ def ensure_genstep(release):
         try_command(f"""
             cd {config_dir}
             cp ./GENfiles/AtoGammaGammaFlatMoE_pythia8_GEN.py ./{release}/src
+            scram b
         """)
     if not os.path.exists(f"{config_dir}/{release}/src/GeneratorInterface/Pythia8Interface/plugins/Py8MoEGun.cc"):
         print(f"Moving plugins to the correct directory.")
         try_command(f"""
             cd {config_dir}
             cp ./GENfiles/plugins/Py8MoEGun.cc ./{release}/src/GeneratorInterface/Pythia8Interface/plugins
+            scram b
         """)
 
 if __name__ == "__main__":

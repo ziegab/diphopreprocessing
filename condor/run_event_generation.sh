@@ -4,12 +4,12 @@
 source /cvmfs/cms.cern.ch/cmsset_default.sh 
 export SCRAM_ARCH=slc7_amd64_gcc10
 
-n_events=500
+n_events=50000
 releasedir=/afs/crc.nd.edu/user/g/gziemyt2/Public/diphogensig/diphopreprocessing/tools/configs
 tmpdir=/scratch365/gziemyt2/DiphotonGun/condor
-outpath=/project01/ndcms/gziemyt2/DiphotonGun/AtoGG_500events1.0Ma_MiniAOD.root
+outpath=/project01/ndcms/gziemyt2/DiphotonGun/AtoGG_50000events0.01Ma_MiniAOD.root
 saveAOD=True
-aMass=1.0
+aMass=0.01
 
 outputdir=$(dirname "$outpath")
 echo "$outputdir"
